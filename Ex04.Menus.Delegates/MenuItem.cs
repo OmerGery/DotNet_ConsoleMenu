@@ -7,31 +7,63 @@ namespace Ex04.Menus.Delegates
     public class MenuItem
     {
         private int m_Level;
-        public List<MenuOption> m_UserOptions;
+        private string m_Title;
+        private List<Option> m_UserOptions;
+
+        public string Title
+        {
+            get { return m_Title; }
+            set { m_Title = value; }
+        }
         public MenuItem(int i_Level)
         {
-            m_UserOptions = new List<MenuOption> { new MenuOption("omer"), new MenuOption("daniel") };
+            m_UserOptions = new List<Option>();
             m_Level = i_Level;
+            if(i_Level == 0)
+            {
+                Action exitFunction = () => System.Environment.Exit(0);
+                AddActionOption("Exit", ref exitFunction);
+            }
         }
+        
 
-        public void ShowLevel()
+        private void ShowLevel()
         {
             Console.WriteLine(m_Level);
         }
 
         public void ShowOptions()
         {
+            Console.WriteLine(m_Title);
+            Console.WriteLine("The level is {0}",m_Level);
             bool selected = false;
-            foreach(MenuOption option in m_UserOptions)
+            int currentOptionToPrint= 0;
+            foreach(Option option in m_UserOptions)
             {
-                option.Show();
+                Console.WriteLine(@"{0} - {1}", currentOptionToPrint, option.ToString());
+                currentOptionToPrint++;
             }
+            getInput();
+        }
 
-            string selection  = Console.ReadLine();
-            int choose = 1;
-            m_UserOptions[1].Selected();
+        private void getInput()
+        {
+            int userOptionSelection;
+            Console.WriteLine("please enter selection");
+            int.TryParse(Console.ReadLine(), out userOptionSelection);
+            m_UserOptions[userOptionSelection].Selected();
             Console.ReadLine();
+        }
 
+        public void AddActionOption(string i_NameOfOption, ref Action i_Function)
+        {
+            Option newOption = new ActionOption(i_NameOfOption,ref i_Function);
+            m_UserOptions.Add(newOption);
+        }
+        public void AddNavigationOption(string i_NameOfOption, ref MenuItem menuToNavigateTo)
+        {
+            Option newOption = new NavigationOption(i_NameOfOption, ref menuToNavigateTo);
+            m_UserOptions.Add(newOption);
         }
     }
 }

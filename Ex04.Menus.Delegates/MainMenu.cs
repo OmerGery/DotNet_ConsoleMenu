@@ -1,17 +1,22 @@
-﻿namespace Ex04.Menus.Delegates
+﻿using System;
+
+namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
-        private MenuItem firstScreen;
-
+        private MenuItem m_MainScreen;
+        public MenuItem MainScreen
+        {
+            get { return m_MainScreen; }
+        }
         public MainMenu()
         {
-            firstScreen = new MenuItem(0);
+            m_MainScreen = new MenuItem(0);
         }
 
         public void Show()
         {
-            firstScreen.ShowOptions();
+            m_MainScreen.ShowOptions();
         }
 
     }
