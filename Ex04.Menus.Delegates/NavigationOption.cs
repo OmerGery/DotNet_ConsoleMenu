@@ -1,10 +1,10 @@
 ﻿using System;
 namespace Ex04.Menus.Delegates
 {
-    public class NavigationOption : Option
+    public class NavigationMenuItem : MenuItem
     {
-        private MenuItem m_LinkedMenu;
-        public NavigationOption(string i_Text, ref MenuItem io_MenuToNavigateTo) : base(i_Text)
+        private Menu m_LinkedMenu;
+        public NavigationMenuItem(string i_Text, ref Menu io_MenuToNavigateTo) : base(i_Text)
         {
             m_LinkedMenu = io_MenuToNavigateTo;
         }
