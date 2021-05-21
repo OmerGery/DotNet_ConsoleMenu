@@ -1,11 +1,14 @@
 ﻿using System;
+using Ex04.Menus.Delegates;
+
 namespace Ex04.Menus.Test
 {
     public class Program
     {
         public static void Main()
         {
-            Console.WriteLine("kelev");
+            MainMenu menu = new MainMenu();
+            menu.StartMenu();
         }
     }
 }
