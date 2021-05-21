@@ -1,5 +1,4 @@
-﻿using System;
-using Ex04.Menus.Delegates;
+﻿using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
@@ -8,7 +7,7 @@ namespace Ex04.Menus.Test
         public static void Main()
         {
             MainMenu menu = new MainMenu();
-            menu.StartMenu();
+            menu.Show();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
@@ -11,7 +9,7 @@ namespace Ex04.Menus.Delegates
             firstScreen = new MenuItem(0);
         }
 
-        public void StartMenu()
+        public void Show()
         {
             firstScreen.ShowOptions();
         }

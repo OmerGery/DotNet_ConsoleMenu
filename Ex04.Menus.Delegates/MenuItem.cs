@@ -14,6 +14,11 @@ namespace Ex04.Menus.Delegates
             m_Level = i_Level;
         }
 
+        public void ShowLevel()
+        {
+            Console.WriteLine(m_Level);
+        }
+
         public void ShowOptions()
         {
             bool selected = false;
