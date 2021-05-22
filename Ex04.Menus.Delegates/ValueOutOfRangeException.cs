@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ex03.GarageLogic
+namespace Ex04.Menus.Delegates
 {
     public class ValueOutOfRangeException : Exception
     {

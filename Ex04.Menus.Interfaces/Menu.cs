@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using Ex03.GarageLogic;
 
 namespace Ex04.Menus.Interfaces
 {
@@ -30,16 +29,7 @@ namespace Ex04.Menus.Interfaces
             m_Title = i_Title;
             r_UserOptions = new List<MenuItem>();
             r_Level = 0;
-            
-            AddOption(new ActionMenuItem("Exit", new ExitMethod()));
-        }
-
-        public class ExitMethod : IRunable
-        {
-            public void Run()
-            {
-                Console.WriteLine("Bye Bye :-)");
-            }
+            AddOption(new ActionMenuItem("Exit", null));
         }
 
         public Menu(string i_Title, Menu i_PreviousMenu)
@@ -52,31 +42,31 @@ namespace Ex04.Menus.Interfaces
 
         public void RunMenu()
         {
-            ///bool exit = false;
-            while(true)
+            while (true)
             {
                 ShowOptions();
                 try
                 {
                     int userSelection = getInput();
                     Console.Clear();
-                    if(userSelection == 0)
+                    if (userSelection == 0)
                     {
                         break;
                     }
 
                     r_UserOptions[userSelection].Selected();
                 }
-                catch(FormatException formatException)
+                catch (FormatException formatException)
                 {
                     Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
+                    Thread.Sleep(1500);
                 }
-                catch(ValueOutOfRangeException outOfRangeException)
+                catch (ValueOutOfRangeException outOfRangeException)
                 {
                     Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
+                    Thread.Sleep(1500);
                 }
 
-                Thread.Sleep(2000);
                 Console.Clear();
             }
         }
