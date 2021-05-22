@@ -1,4 +1,7 @@
-﻿namespace Ex04.Menus.Test
+﻿using System;
+using System.Threading;
+
+namespace Ex04.Menus.Test
 {
     public class Program
     {
@@ -7,7 +10,15 @@
             DelgatesImplementationRunner delegatesRunner = new DelgatesImplementationRunner();
             InterfacesImplementationRunner interfacesRunner = new InterfacesImplementationRunner();
             interfacesRunner.RunMenu();
+            SwitchMenusScreen();
             delegatesRunner.RunMenu();
+        }
+
+        public static void SwitchMenusScreen()
+        {
+            Console.WriteLine("Switching to delegates-implemented menu...");
+            Thread.Sleep(1500);
+            Console.Clear();
         }
     }
 }

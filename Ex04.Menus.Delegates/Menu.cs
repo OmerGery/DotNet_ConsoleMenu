@@ -7,15 +7,15 @@ namespace Ex04.Menus.Delegates
 {
     public class Menu
     {
-        private int m_Level;
+        private readonly List<MenuItem> r_UserOptions;
+        private readonly int r_Level;
         private string m_Title;
-        private List<MenuItem> m_UserOptions;
 
         public int Level
         {
             get
             {
-                return m_Level;
+                return r_Level;
             }
         }
 
@@ -28,16 +28,16 @@ namespace Ex04.Menus.Delegates
         public Menu(string i_Title)
         {
             m_Title = i_Title;
-            m_UserOptions = new List<MenuItem>();
-            m_Level = 0;
+            r_UserOptions = new List<MenuItem>();
+            r_Level = 0;
             AddOption(new ActionMenuItem("Exit", () => System.Environment.Exit(0)));
         }
 
         public Menu(string i_Title, Menu i_PreviousMenu)
         {
             m_Title = i_Title;
-            m_UserOptions = new List<MenuItem>();
-            m_Level = i_PreviousMenu.Level + 1;
+            r_UserOptions = new List<MenuItem>();
+            r_Level = i_PreviousMenu.Level + 1;
             AddOption(new NavigationMenuItem("Back", i_PreviousMenu));
         }
 
@@ -68,9 +68,9 @@ namespace Ex04.Menus.Delegates
     public void ShowOptions()
     {
         Console.WriteLine(m_Title);
-        Console.WriteLine("The level is {0}", m_Level);
+        Console.WriteLine("The level is {0}", r_Level);
         int currentOptionToPrint = 0;
-        foreach (MenuItem option in m_UserOptions)
+        foreach (MenuItem option in r_UserOptions)
         {
             Console.WriteLine(@"{0} - {1}", currentOptionToPrint, option);
             currentOptionToPrint++;
@@ -85,18 +85,18 @@ namespace Ex04.Menus.Delegates
             throw new FormatException("You must enter a number for the selection of the requested option.");
         }
 
-        if (userOptionSelection < 0 || userOptionSelection > m_UserOptions.Count - 1)
+        if (userOptionSelection < 0 || userOptionSelection > r_UserOptions.Count - 1)
         {
-            throw new ValueOutOfRangeException(0, m_UserOptions.Count - 1, "Option Selection");
+            throw new ValueOutOfRangeException(0, r_UserOptions.Count - 1, "Option Selection");
         }
 
         Console.Clear();
-        m_UserOptions[userOptionSelection].Selected();
+        r_UserOptions[userOptionSelection].Selected();
     }
 
     public void AddOption(MenuItem i_MenuItemToAdd)
     {
-        m_UserOptions.Add(i_MenuItemToAdd);
+        r_UserOptions.Add(i_MenuItemToAdd);
     }
 }
 }

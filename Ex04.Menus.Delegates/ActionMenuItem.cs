@@ -10,7 +10,7 @@ namespace Ex04.Menus.Delegates
         {
             MenuItemToDoOnSelection += i_MethodToAdd;
         }
-        
+            
        protected override void OnSelection()
        {
                MenuItemToDoOnSelection?.Invoke();

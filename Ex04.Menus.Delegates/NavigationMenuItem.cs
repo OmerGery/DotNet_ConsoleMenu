@@ -4,16 +4,16 @@ namespace Ex04.Menus.Delegates
 {
     public class NavigationMenuItem : MenuItem
     {
-        private Menu m_LinkedMenu;
+        private readonly Menu r_LinkedMenu;
 
-        public NavigationMenuItem(string i_Text, Menu io_MenuToNavigateTo) : base(i_Text)
+        public NavigationMenuItem(string i_Text, Menu i_MenuToNavigateTo) : base(i_Text)
         {
-            m_LinkedMenu = io_MenuToNavigateTo;
+            r_LinkedMenu = i_MenuToNavigateTo;
         }
 
         protected override void OnSelection()
         {
-            m_LinkedMenu.RunMenu();
+            r_LinkedMenu.RunMenu();
         }
     }
 }

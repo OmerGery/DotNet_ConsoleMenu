@@ -2,21 +2,21 @@
 {
     public class MainMenu
     {
-        private Menu m_MainScreen;
+        private readonly Menu r_MainScreen;
 
         public Menu MainScreen
         {
-            get { return m_MainScreen; }
+            get { return r_MainScreen; }
         }
 
         public MainMenu(string i_Title)
         {
-            m_MainScreen = new Menu(i_Title);
+            r_MainScreen = new Menu(i_Title);
         }
         
         public void Show()
         {
-            m_MainScreen.RunMenu();
+            r_MainScreen.RunMenu();
         }
     }
 }
