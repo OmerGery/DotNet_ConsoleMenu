@@ -1,0 +1,25 @@
+﻿namespace Ex04.Menus.Interfaces
+{
+    public class MainMenu
+    {
+        private Menu m_MainScreen;
+
+        public Menu MainScreen
+        {
+            get
+            {
+                return m_MainScreen;
+            }
+        }
+
+        public MainMenu(string i_Title)
+        {
+            m_MainScreen = new Menu(i_Title);
+        }
+
+        public void Show()
+        {
+            m_MainScreen.RunMenu();
+        }
+    }
+}
