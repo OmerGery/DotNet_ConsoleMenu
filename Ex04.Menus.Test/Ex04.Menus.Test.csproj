@@ -42,7 +42,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelgatesImplentationRunner.cs" />
+    <Compile Include="DelgatesImplementationRunner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TesterMethods.cs" />
   </ItemGroup>

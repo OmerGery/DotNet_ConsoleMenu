@@ -7,7 +7,8 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
-            DelgatesImplentationRunner.RunMenuWithDelgatesImplementation();
+            DelgatesImplementationRunner delgatesRunner = new DelgatesImplementationRunner();
+            delgatesRunner.RunMenuWithDelegatesImplementation();
             //RunMenuWithInterfacesImplementation();
            
         }

@@ -14,7 +14,7 @@ namespace Ex04.Menus.Delegates
             m_MainScreen = new Menu(i_Title);
         }
         
-        public void RunMenu()
+        public void Show()
         {
             m_MainScreen.RunMenu();
         }
