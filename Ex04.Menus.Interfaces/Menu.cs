@@ -6,6 +6,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class Menu
     {
+        private const int k_ThreadSleepTime = 1500;
         private readonly List<MenuItem> r_UserOptions;
         private readonly int r_Level;
         private string m_Title;
@@ -59,12 +60,12 @@ namespace Ex04.Menus.Interfaces
                 catch (FormatException formatException)
                 {
                     Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
-                    Thread.Sleep(1500);
+                    Thread.Sleep(k_ThreadSleepTime);
                 }
                 catch (ValueOutOfRangeException outOfRangeException)
                 {
                     Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
-                    Thread.Sleep(1500);
+                    Thread.Sleep(k_ThreadSleepTime);
                 }
 
                 Console.Clear();
@@ -88,7 +89,7 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("please select an option from the menu");
             if (!int.TryParse(Console.ReadLine(), out int userOptionSelection))
             {
-                throw new FormatException("You must enter a number for the selection of the requested option.");
+                throw new FormatException("You must enter a non negative round number for the selection of the requested option.");
             }
 
             if (userOptionSelection < 0 || userOptionSelection > r_UserOptions.Count - 1)
