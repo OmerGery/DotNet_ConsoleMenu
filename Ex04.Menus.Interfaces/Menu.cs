@@ -52,7 +52,7 @@ namespace Ex04.Menus.Interfaces
 
         public void RunMenu()
         {
-            //bool exit = false;
+            ///bool exit = false;
             while(true)
             {
                 ShowOptions();
@@ -64,23 +64,18 @@ namespace Ex04.Menus.Interfaces
                     {
                         break;
                     }
+
                     r_UserOptions[userSelection].Selected();
-                    
                 }
                 catch(FormatException formatException)
                 {
-                    Console.WriteLine(
-                        "There was an error with the input format.{0}{1}",
-                        Environment.NewLine,
-                        formatException.Message);
+                    Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
                 }
                 catch(ValueOutOfRangeException outOfRangeException)
                 {
-                    Console.WriteLine(
-                        "The selected input was out of range.{0}{1}",
-                        Environment.NewLine,
-                        outOfRangeException.Message);
+                    Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
                 }
+
                 Thread.Sleep(2000);
                 Console.Clear();
             }
