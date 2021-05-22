@@ -6,7 +6,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class Menu
     {
-        private const int k_ThreadSleepTime = 1500;
+        private const int k_SleepTime = 1500;
         private readonly List<MenuItem> r_UserOptions;
         private readonly int r_Level;
         private string m_Title;
@@ -21,8 +21,15 @@ namespace Ex04.Menus.Interfaces
 
         public string Title
         {
-            get { return m_Title; }
-            set { m_Title = value; }
+            get
+            {
+                return m_Title;
+            }
+
+            set
+            {
+                m_Title = value;
+            }
         }
 
         public Menu(string i_Title)
@@ -45,7 +52,7 @@ namespace Ex04.Menus.Interfaces
         {
             while (true)
             {
-                ShowOptions();
+                showOptions();
                 try
                 {
                     int userSelection = getInput();
@@ -60,19 +67,24 @@ namespace Ex04.Menus.Interfaces
                 catch (FormatException formatException)
                 {
                     Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
-                    Thread.Sleep(k_ThreadSleepTime);
+                    clearAfterError();
                 }
                 catch (ValueOutOfRangeException outOfRangeException)
                 {
                     Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
-                    Thread.Sleep(k_ThreadSleepTime);
+                    clearAfterError();
                 }
-
-                Console.Clear();
             }
         }
 
-        public void ShowOptions()
+        private void clearAfterError()
+        {
+            Thread.Sleep(k_SleepTime);
+            Console.Clear();
+        }
+
+
+        private void showOptions()
         {
             Console.WriteLine(m_Title);
             Console.WriteLine("The level is {0}", r_Level);
