@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using Ex03.GarageLogic;
 
@@ -54,19 +52,20 @@ namespace Ex04.Menus.Interfaces
 
         public void RunMenu()
         {
-            bool exit = false;
-            while(!exit)
+            //bool exit = false;
+            while(true)
             {
                 ShowOptions();
                 try
                 {
                     int userSelection = getInput();
                     Console.Clear();
-                    r_UserOptions[userSelection].Selected();
                     if(userSelection == 0)
                     {
-                        exit = true;
+                        break;
                     }
+                    r_UserOptions[userSelection].Selected();
+                    
                 }
                 catch(FormatException formatException)
                 {
@@ -82,7 +81,6 @@ namespace Ex04.Menus.Interfaces
                         Environment.NewLine,
                         outOfRangeException.Message);
                 }
-
                 Thread.Sleep(2000);
                 Console.Clear();
             }
