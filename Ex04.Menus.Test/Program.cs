@@ -5,7 +5,9 @@
         public static void Main()
         {
             DelgatesImplementationRunner delegatesRunner = new DelgatesImplementationRunner();
-            delegatesRunner.RunMenuWithDelegatesImplementation();
+            InterfacesImplementationRunner interfacesRunner = new InterfacesImplementationRunner();
+            interfacesRunner.RunMenu();
+            delegatesRunner.RunMenu();
         }
     }
 }

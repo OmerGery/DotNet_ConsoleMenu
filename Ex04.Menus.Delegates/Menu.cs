@@ -52,17 +52,11 @@ namespace Ex04.Menus.Delegates
                 }
                 catch(FormatException formatException)
                 {
-                    Console.WriteLine(
-                        "There was an error with the input format.{0}{1}",
-                        Environment.NewLine,
-                        formatException.Message);
+                    Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
                 }
                 catch(ValueOutOfRangeException outOfRangeException)
                 {
-                    Console.WriteLine(
-                        "The selected input was out of range.{0}{1}",
-                        Environment.NewLine,
-                        outOfRangeException.Message);
+                    Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
                 }
 
                 Thread.Sleep(2000);
@@ -70,8 +64,7 @@ namespace Ex04.Menus.Delegates
                 ShowOptions();
             }
         }
-    
-
+        
     public void ShowOptions()
     {
         Console.WriteLine(m_Title);
@@ -96,6 +89,7 @@ namespace Ex04.Menus.Delegates
         {
             throw new ValueOutOfRangeException(0, m_UserOptions.Count - 1, "Option Selection");
         }
+
         Console.Clear();
         m_UserOptions[userOptionSelection].Selected();
     }

@@ -34,5 +34,14 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ActionMenuItem.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="Runable.cs" />
+    <Compile Include="NavigationMenuItem.cs" />
+    <Compile Include="ValueOutOfRangeException.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

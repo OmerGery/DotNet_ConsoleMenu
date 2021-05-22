@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
