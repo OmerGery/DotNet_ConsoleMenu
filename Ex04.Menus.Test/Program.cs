@@ -16,7 +16,7 @@ namespace Ex04.Menus.Test
 
         public static void SwitchMenusScreen()
         {
-            Console.WriteLine("Switching to delegates-implemented menu...");
+            Console.WriteLine("Switching to the delegates-implemented menu...");
             Thread.Sleep(1500);
             Console.Clear();
         }
