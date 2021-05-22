@@ -74,8 +74,6 @@ namespace Ex04.Menus.Delegates
                     Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message); 
                     Thread.Sleep(k_ThreadSleepTime);
                 }
-
-                Console.Clear();
             }
         }
 
