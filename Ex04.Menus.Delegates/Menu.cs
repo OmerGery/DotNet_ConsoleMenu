@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Ex04.Menus.Delegates
 {
-
     public class Menu
     {
         private int m_Level;
         private string m_Title;
         private List<MenuItem> m_UserOptions;
+
         public int Level
         {
             get
@@ -16,6 +16,7 @@ namespace Ex04.Menus.Delegates
                 return m_Level;
             }
         }
+
         public string Title
         {
             get { return m_Title; }
@@ -29,16 +30,15 @@ namespace Ex04.Menus.Delegates
             m_Level = 0;
             AddOption(new ActionMenuItem("Exit", () => System.Environment.Exit(0)));
         }
-        public Menu(string i_Title,ref Menu i_PreviousMenu)
+
+        public Menu(string i_Title, ref Menu i_PreviousMenu)
         {
             m_Title = i_Title;
             m_UserOptions = new List<MenuItem>();
             m_Level = i_PreviousMenu.Level + 1;
-            AddOption(new NavigationMenuItem("Back",ref i_PreviousMenu));
+            AddOption(new NavigationMenuItem("Back", ref i_PreviousMenu));
         }
         
-
-
         public void RunMenu()
         {
             ShowOptions();
@@ -47,12 +47,12 @@ namespace Ex04.Menus.Delegates
                 getInput();
             }
         }
+
         public void ShowOptions()
         {
             Console.WriteLine(m_Title);
-            Console.WriteLine("The level is {0}",m_Level);
-            bool selected = false;
-            int currentOptionToPrint= 0;
+            Console.WriteLine("The level is {0}", m_Level);
+            int currentOptionToPrint = 0;
             foreach(MenuItem option in m_UserOptions)
             {
                 Console.WriteLine(@"{0} - {1}", currentOptionToPrint, option.ToString());

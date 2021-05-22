@@ -1,12 +1,11 @@
-﻿
-
-using Ex04.Menus.Delegates;
+﻿using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
     public class DelgatesImplementationRunner
     {
         private MainMenu m_MainMenu;
+
         public MainMenu BuildMenu()
         {
             m_MainMenu = new MainMenu("Main Menu");
@@ -21,6 +20,7 @@ namespace Ex04.Menus.Test
             dateAndTime.AddOption(new ActionMenuItem("Show Date", TesterMethods.ShowDate));
             return m_MainMenu;
         }
+
         public void RunMenuWithDelegatesImplementation()
         {
             BuildMenu();

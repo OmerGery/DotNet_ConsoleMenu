@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace Ex04.Menus.Delegates
 {
@@ -7,9 +6,9 @@ namespace Ex04.Menus.Delegates
     {
         public event Action MenuItemToDoOnSelection;
 
-        public ActionMenuItem(string i_Text, Action i_Function) : base(i_Text)
+        public ActionMenuItem(string i_Text, Action i_MethodToAdd) : base(i_Text)
         {
-            MenuItemToDoOnSelection += i_Function;
+            MenuItemToDoOnSelection += i_MethodToAdd;
         }
         
        protected override void OnSelection()

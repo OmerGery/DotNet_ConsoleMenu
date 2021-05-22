@@ -9,8 +9,6 @@ namespace Ex04.Menus.Test
         {
             DelgatesImplementationRunner delgatesRunner = new DelgatesImplementationRunner();
             delgatesRunner.RunMenuWithDelegatesImplementation();
-            //RunMenuWithInterfacesImplementation();
-           
         }
     }
 }

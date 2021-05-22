@@ -21,12 +21,13 @@ namespace Ex04.Menus.Test
                     spacesAmount++;
                 }
             }
+
             Console.WriteLine(@"There are {0} spaces in the sentence you entered.", spacesAmount);
         }
 
         public static void ShowTime()
         {
-            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt zz"));
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt"));
         }
 
         public static void ShowDate()

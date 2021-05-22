@@ -1,6 +1,4 @@
-﻿
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public abstract class MenuItem
     {
@@ -10,6 +8,7 @@ namespace Ex04.Menus.Delegates
         {
             m_Text = i_Text;
         }
+
         public void Selected()
         {
             OnSelection();
