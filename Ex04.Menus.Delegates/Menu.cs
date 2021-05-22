@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ex03.GarageLogic;
 
 namespace Ex04.Menus.Delegates
 {
@@ -41,10 +42,22 @@ namespace Ex04.Menus.Delegates
         
         public void RunMenu()
         {
+            Console.Clear();
             ShowOptions();
             while(true)
             {
-                getInput();
+                try
+                {
+                    getInput();
+                }
+                catch (FormatException formatException)
+                {
+                    Console.WriteLine("There was an error with the input format.{0}{1}", Environment.NewLine, formatException.Message);
+                }
+                catch (ValueOutOfRangeException outOfRangeException)
+                {
+                    Console.WriteLine("The selected input was out of range.{0}{1}", Environment.NewLine, outOfRangeException.Message);
+                }
             }
         }
 
@@ -62,9 +75,17 @@ namespace Ex04.Menus.Delegates
 
         private void getInput()
         {
-            int userOptionSelection;
-            Console.WriteLine("please enter selection");    
-            int.TryParse(Console.ReadLine(), out userOptionSelection);
+            Console.WriteLine("please enter selection");
+            if(!int.TryParse(Console.ReadLine(), out int userOptionSelection))
+            {
+                throw new FormatException("You must enter a number for the selection of the requested option.");
+            }
+
+            if(userOptionSelection < 0 || userOptionSelection > m_UserOptions.Count - 1)
+            {
+                throw new ValueOutOfRangeException(0, m_UserOptions.Count - 1, "Option Selection");
+            }
+
             m_UserOptions[userOptionSelection].Selected();
         }
 

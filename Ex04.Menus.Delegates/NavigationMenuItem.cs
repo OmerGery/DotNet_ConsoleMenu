@@ -12,8 +12,7 @@ namespace Ex04.Menus.Delegates
         }
 
         protected override void OnSelection()
-        { 
-            Console.Clear();
+        {
             m_LinkedMenu.RunMenu();
         }
     }

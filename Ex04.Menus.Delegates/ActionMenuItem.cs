@@ -13,14 +13,7 @@ namespace Ex04.Menus.Delegates
         
        protected override void OnSelection()
        {
-           if(MenuItemToDoOnSelection != null)
-           {
-               MenuItemToDoOnSelection.Invoke();
-           }
-           else
-           {
-                Console.WriteLine("This Option doesn't exist");
-           }
+               MenuItemToDoOnSelection?.Invoke();
        }
     }
 }
