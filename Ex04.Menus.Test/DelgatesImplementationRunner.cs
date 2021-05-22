@@ -10,10 +10,10 @@ namespace Ex04.Menus.Test
         {
             m_MainMenu = new MainMenu("Main Menu");
             Menu mainScreen = m_MainMenu.MainScreen;
-            Menu versionAndSpacesMenu = new Menu("Version and Spaces Menu", ref mainScreen);
-            mainScreen.AddOption(new NavigationMenuItem("Version and Spaces", ref versionAndSpacesMenu));
-            Menu dateAndTime = new Menu("Show Date / Time", ref mainScreen);
-            mainScreen.AddOption(new NavigationMenuItem("Show Date / Time", ref dateAndTime));
+            Menu versionAndSpacesMenu = new Menu("Version and Spaces Menu", mainScreen);
+            mainScreen.AddOption(new NavigationMenuItem("Version and Spaces", versionAndSpacesMenu));
+            Menu dateAndTime = new Menu("Show Date / Time", mainScreen);
+            mainScreen.AddOption(new NavigationMenuItem("Show Date / Time", dateAndTime));
             versionAndSpacesMenu.AddOption(new ActionMenuItem("Show Version", TesterMethods.ShowVersion));
             versionAndSpacesMenu.AddOption(new ActionMenuItem("Count Spaces", TesterMethods.CountSpaces));
             dateAndTime.AddOption(new ActionMenuItem("Show Time", TesterMethods.ShowTime));

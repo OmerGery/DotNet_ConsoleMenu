@@ -31,12 +31,12 @@ namespace Ex04.Menus.Delegates
             AddOption(new ActionMenuItem("Exit", () => System.Environment.Exit(0)));
         }
 
-        public Menu(string i_Title, ref Menu i_PreviousMenu)
+        public Menu(string i_Title, Menu i_PreviousMenu)
         {
             m_Title = i_Title;
             m_UserOptions = new List<MenuItem>();
             m_Level = i_PreviousMenu.Level + 1;
-            AddOption(new NavigationMenuItem("Back", ref i_PreviousMenu));
+            AddOption(new NavigationMenuItem("Back", i_PreviousMenu));
         }
         
         public void RunMenu()
